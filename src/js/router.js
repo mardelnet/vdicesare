@@ -1,7 +1,6 @@
 const routes = {
   '/': renderHome,
-  '/education': renderAbout,
-  '/conferences': renderContact,
+  '/conferences': renderConferences,
 };
 
 function router() {
@@ -26,6 +25,5 @@ document.addEventListener('click', e => {
 router();
 
 function renderHome() { return '<comp-page-home></comp-page-home>'; }
-function renderAbout() { return '<h1>About</h1>'; }
-function renderContact() { return '<h1>Contact</h1>'; }
+function renderConferences() { return '<comp-page-conferences></comp-page-conferences>'; }
 function renderNotFound() { return '<h1>404</h1>'; }

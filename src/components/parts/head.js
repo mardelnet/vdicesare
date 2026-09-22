@@ -1,4 +1,4 @@
-class Intro extends HTMLElement {
+class Head extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <section id="intro">
@@ -6,7 +6,8 @@ class Intro extends HTMLElement {
         <h1>Victoria Di Césare</h1>
         <p>PhD student in Social Sciences at the University of Granada</p>
       </section>
+      <comp-nav></comp-nav>
     `;
   }
 }
-customElements.define('comp-intro', Intro);
+customElements.define('comp-head', Head);

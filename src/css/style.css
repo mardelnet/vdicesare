@@ -1,3 +1,107 @@
+@font-face {
+  font-family: 'Cormorant';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('../../assets/fonts/Cormorant/Cormorant-VariableFont_wght.ttf') format('truetype-variations');
+}
+
+/* :root {
+    --color1: #0b0e12;
+    --color2: #1b2430;
+    --color3: #3a4b58;
+    --color4: #8c7b67;
+    --color5: #d6c8b7;
+} */
+
+:root {
+    --color1: #161A21;
+    --color2: #2D3748;
+    --color3: #4F6474;
+    --color4: #B8A98E;
+    --color5: #E7DDCD;
+}
+html, body {
+    padding: 0;
+    margin: 0;
+    color: var(--color1);
+    background-color: var(--color2);
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(../../assets/images/PageOrnament70.svg);
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 60px;
+    background-attachment: fixed;
+    scroll-behavior: smooth;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.5px;
+}
+main {
+    background-color: var(--color5);
+}
+h1, h2, h3, h4, h5 {
+    font-family: 'Cormorant', serif;
+    margin: 0;
+}
+ul, li {
+    padding: 0;
+    margin: 0;
+}
+h1 {
+    text-align: center;
+    margin: 24px 0 12px;
+    font-size: 64px;
+    line-height: 1;
+    color: var(--color5);
+}
+h2 {
+    margin: 0 0 12px;
+    padding: 0 0 12px;
+    font-size: 36px;
+    line-height: 1;
+    color: var(--color2);
+    border-bottom: 1px solid var(--color4);
+}
+footer {
+    background-color: var(--color2);
+    padding: 48px 0;
+
+    h3, h4 {
+        text-align: center;
+        color: var(--color5);
+    }
+}
+.container {
+    width: 100%;
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 48px 12px 0;
+}
+#intro {
+    padding: 0 0 48px;
+
+    p {
+        text-align: center;
+        color: var(--color4);
+        margin: 0;
+        font-size: 32px;
+        line-height: 1;
+        font-family: 'Cormorant', serif;
+        font-weight: 700;
+    }
+    img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 0 0 50% 50%;
+        margin: -12px auto 0;
+        display: block;
+        border: 5px solid #7C6A3A;
+        box-shadow: 0 0 24px #7C6A3A;
+    }
+}
 header {
     &.header{
         background-color: var(--color4);
