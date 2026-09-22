@@ -1,13 +1,34 @@
 const routes = {
   '/': renderHome,
-  '/conferences': renderConferences,
-  '/publications': renderPublications,
 };
 
-function router() {
+async function getPages() {
+  const pages = await getAllPages();
+  pages.forEach(page => {
+    const originalPageName = page.properties.title;
+    const pageName = originalPageName.toLowerCase();
+    routes[`/${pageName}`] = createRenderer(originalPageName, pageName);
+  });
+}
+
+function createRenderer(originalPageName, pageName) {
+  return function () {
+    return `<comp-page-${pageName} sheet="${originalPageName}"></comp-page-${pageName}>`;
+  };
+}
+
+function renderHome() { 
+  return '<comp-page-home></comp-page-home>';
+}
+
+function renderNotFound() { 
+  return '<h1>404</h1>';
+}
+
+async function router() {
   const path = window.location.pathname;
-  const render = routes[path] || renderNotFound;
-  document.getElementById('app').innerHTML = render();
+  const render = routes[path] || renderNotFound; // sometimes a string, sometimes a function
+  document.getElementById('app').innerHTML = render(); // boom if it's a string
 }
 
 // handle back/forward buttons
@@ -24,8 +45,4 @@ document.addEventListener('click', e => {
 
 // initial render
 router();
-
-function renderHome() { return '<comp-page-home></comp-page-home>'; }
-function renderConferences() { return '<comp-page-conferences sheet="Conferences"></comp-page-conferences>'; }
-function renderPublications() { return '<comp-page-publications sheet="Publications"></comp-page-publications>'; }
-function renderNotFound() { return '<h1>404</h1>'; }
+getPages();

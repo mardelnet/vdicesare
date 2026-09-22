@@ -1,7 +1,8 @@
 class Home extends HTMLElement {
   connectedCallback() {
+    const sheet = this.getAttribute('sheet');
     this.loadStyles();
-    this.innerHTML = this.loadHtml();
+    this.loadHtml(sheet);
   }
 
   loadStyles() {
@@ -19,8 +20,28 @@ class Home extends HTMLElement {
     document.querySelector('link[data-page-style="home"]')?.remove();
   }
 
-  loadHtml() {
-      return `
+  async loadHtml(sheet) {
+    const rows = await getSheetData(sheet);
+    // const obj = Object.fromEntries(data);
+
+    // const [header, ...dataRows] = rows;
+
+    // const items = dataRows
+    //   .map(row => {
+    //     const [authors, date, title, conference, institution, city, country, link, type] = row;
+    //     return `
+    //       <li>
+    //         <h3>${title}</h3>
+    //         <p>${authors}</p>
+    //         <p>${conference} — ${institution}, ${city}, ${country}</p>
+    //         <p>${date} · ${type}</p>
+    //         <a href="${link}" target="_blank" rel="noopener">View</a>
+    //       </li>
+    //     `;
+    //   })
+    //   .join('');
+
+    this.innerHTML = `
       <main id="homepage">
         <section id="personal">
           <div class="container">
