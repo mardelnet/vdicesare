@@ -7,13 +7,13 @@ async function getPages() {
   pages.forEach(page => {
     const originalPageName = page.properties.title;
     const pageName = originalPageName.toLowerCase();
-    routes[`/${pageName}`] = createRenderer(originalPageName, pageName);
+    routes[`/${pageName}`] = createRenderer(originalPageName);
   });
 }
 
-function createRenderer(originalPageName, pageName) {
+function createRenderer(originalPageName) {
   return function () {
-    return `<comp-page-${pageName} sheet="${originalPageName}"></comp-page-${pageName}>`;
+    return `<comp-page sheet="${originalPageName}"></comp-page>`;
   };
 }
 
