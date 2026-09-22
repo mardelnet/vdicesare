@@ -1,0 +1,21 @@
+#homepage {
+    #education {
+        li {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            p {
+                border-left: 1px solid var(--color4);
+                margin-left: 12px;
+                padding-left: 12px;
+            }
+            img {
+                width: 120px;
+                height: 40px;
+                object-fit: contain;
+                object-position: left center;
+            }
+        }
+    }
+}
