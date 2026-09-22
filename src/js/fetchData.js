@@ -1,27 +1,15 @@
-function fetchSheetJSONP(sheetName, callback) {
-  const sheetId = '1mEUi9qemf5EoOcNaTFw0Q-iUqgJZqOfAYf4IoHE2ePw';
-
-  const callbackName = 'gvizCallback_' + Math.random().toString(36).slice(2);
-
-  window[callbackName] = function (response) {
-    const rows = response.table.rows.map(row =>
-      row.c.map(cell => cell?.v ?? null)
-    );
-    callback(rows);
-    delete window[callbackName];
-    script.remove();
-  };
-
-  const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq` +
-    `?tqx=out:json;responseHandler:${callbackName}` +
-    `&sheet=${encodeURIComponent(sheetName)}`;
-
-  const script = document.createElement('script');
-  script.src = url;
-  document.body.appendChild(script);
+const baseUrl = 'https://sheets.googleapis.com/v4/spreadsheets';
+const apiKey = 'AIzaSyB3dYagFFdFr9P1W7sl56vhxs9JglB0HUg';
+const sheetId = '1mEUi9qemf5EoOcNaTFw0Q-iUqgJZqOfAYf4IoHE2ePw';
+  
+const getAllPages = async () => {
+  const pages = await fetch(`${baseUrl}/${sheetId}?key=${apiKey}`).then(res => res.json());
+  return pages.sheets;
 }
 
-// usage
-fetchSheetJSONP('Conferences', rows => {
-  console.log(rows);
-});
+async function getSheetData(sheetName) {
+  const url = `${baseUrl}/${sheetId}/values/${encodeURIComponent(sheetName)}?key=${apiKey}`;
+  const res = await fetch(url);
+  const data = await res.json();
+  return data.values; // array of arrays — one array per row
+}
