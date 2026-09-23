@@ -1,3 +1,5 @@
+let currentPath = null;
+
 const routes = {
   '/': renderHome,
 };
@@ -6,10 +8,7 @@ async function getPages() {
   const pages = await getAllPages();
   pages.forEach(page => {
     const originalPageName = page.properties.title;
-    const pageName = originalPageName
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-+|-+$/g, '');
+    const pageName = sanitizeString(originalPageName);
     routes[`/${pageName}`] = createRenderer(originalPageName, pageName);
   });
 }
@@ -30,6 +29,9 @@ function renderNotFound() {
 
 async function router() {
   const path = window.location.pathname;
+  if (path === currentPath) return; // hash-only navigation, nothing to re-render
+  currentPath = path;
+
   const render = routes[path] || renderNotFound;
   document.getElementById('app').innerHTML = render();
 }

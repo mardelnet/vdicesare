@@ -7,10 +7,17 @@ class AdditionalTraining extends SheetPage {
       return acc;
     }, {});
 
-    const listItems = Object.entries(groups)
+    const subMenu = Object.entries(groups)
+      .map(([type]) => `
+        <a href="#${sanitizeString(type)}">
+          ${type}
+        </a>`)
+      .join('');
+      
+      const listItems = Object.entries(groups)
       .map(([type, groupItems]) => `
         <div class="group">
-          <h3 class="group-title">${type}</h3>
+          <h3 id="${sanitizeString(type)}" class="group-title">${type}</h3>
           <div class="items">
             ${groupItems.map((item, i) => `
               <div id="item-${type}-${i}" class="item">
@@ -25,6 +32,7 @@ class AdditionalTraining extends SheetPage {
       .join('');
 
     return `
+      <nav>${subMenu}</nav>
       <div class="grouped-items">${listItems}</div>
     `;
   }
