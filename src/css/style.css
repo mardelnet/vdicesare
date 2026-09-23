@@ -5,21 +5,13 @@
   font-display: swap;
   src: url('../../assets/fonts/Cormorant/Cormorant-VariableFont_wght.ttf') format('truetype-variations');
 }
-
-/* :root {
-    --color1: #0b0e12;
-    --color2: #1b2430;
-    --color3: #3a4b58;
-    --color4: #8c7b67;
-    --color5: #d6c8b7;
-} */
-
 :root {
     --color1: #161A21;
     --color2: #2D3748;
     --color3: #4F6474;
     --color4: #B8A98E;
     --color5: #E7DDCD;
+    --container-width: 768px;
 }
 html, body {
     padding: 0;
@@ -49,8 +41,8 @@ ul, li {
     margin: 0;
 }
 h1 {
-    text-align: center;
-    margin: 24px 0 12px;
+    text-align: left;
+    margin: 0;
     font-size: 64px;
     line-height: 1;
     color: var(--color5);
@@ -74,15 +66,62 @@ footer {
 }
 .container {
     width: 100%;
-    max-width: 768px;
+    max-width: var(--container-width);
     margin: 0 auto;
-    padding: 48px 12px 0;
+    padding: 48px 12px;
+}
+.row {
+    border-bottom: 1px solid var(--color4);
+    padding: 0 0 12px 16px;
+    margin-bottom: 12px;
+
+    &:last-of-type {
+        border: 0;
+    }
+    li {
+        list-style: none;
+    }
+}
+.items {
+    margin-left: 16px;
+
+    .item {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: top;
+        text-align: left;
+        border-bottom: 1px solid var(--color4);
+
+        .type, .year {
+            width: fit-content;
+            flex-shrink: 0;
+        }
+        .type {
+            font-family: 'Cormorant', serif;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .info {
+            width: auto;
+            flex-grow: 1;
+        }
+        div {
+            padding: 6px 12px;
+        }
+    }
 }
 #intro {
-    padding: 0 0 48px;
+    padding: 32px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    max-width: var(--container-width);
+    margin: 0 auto;
 
     p {
-        text-align: center;
+        text-align: left;
         color: var(--color4);
         margin: 0;
         font-size: 32px;
@@ -91,15 +130,15 @@ footer {
         font-weight: 700;
     }
     img {
-        width: 200px;
-        height: 200px;
+        width: 160px;
+        height: 160px;
         object-fit: cover;
         object-position: center;
-        border-radius: 0 0 50% 50%;
-        margin: -12px auto 0;
+        border-radius: 50%;
         display: block;
-        border: 5px solid #7C6A3A;
-        box-shadow: 0 0 24px #7C6A3A;
+        margin-right: 36px;
+        border: 5px solid var(--color5);
+        box-shadow: 0 0 24px var(--color5);
     }
 }
 header {

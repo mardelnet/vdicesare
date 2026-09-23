@@ -9,8 +9,10 @@ class Head extends HTMLElement {
     this.innerHTML = `
       <section id="intro">
         <img src="assets/images/picture.png" alt="" />
-        <h1>${rows.find(([key]) => key === 'title')?.[1]}</h1>
-        <p>${rows.find(([key]) => key === 'subtitle')?.[1]}</p>
+        <div>
+          <h1>${rows.find(([key]) => key === 'title')?.[1]}</h1>
+          <p>${rows.find(([key]) => key === 'subtitle')?.[1]}</p>
+        </div>
       </section>
       <comp-nav></comp-nav>
     `;

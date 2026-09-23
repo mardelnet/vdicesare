@@ -6,14 +6,17 @@ async function getPages() {
   const pages = await getAllPages();
   pages.forEach(page => {
     const originalPageName = page.properties.title;
-    const pageName = originalPageName.toLowerCase();
-    routes[`/${pageName}`] = createRenderer(originalPageName);
+    const pageName = originalPageName
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+    routes[`/${pageName}`] = createRenderer(originalPageName, pageName);
   });
 }
 
-function createRenderer(originalPageName) {
+function createRenderer(sheet, id) {
   return function () {
-    return `<comp-page sheet="${originalPageName}"></comp-page>`;
+    return `<comp-page sheet="${sheet}" id="${id}"></comp-page>`;
   };
 }
 
@@ -27,14 +30,17 @@ function renderNotFound() {
 
 async function router() {
   const path = window.location.pathname;
-  const render = routes[path] || renderNotFound; // sometimes a string, sometimes a function
-  document.getElementById('app').innerHTML = render(); // boom if it's a string
+  const render = routes[path] || renderNotFound;
+  document.getElementById('app').innerHTML = render();
 }
 
-// handle back/forward buttons
+async function init() {
+  await getPages();   // wait for routes to be fully populated first
+  router();           // now render, with routes ready
+}
+
 window.addEventListener('popstate', router);
 
-// handle link clicks without full reload
 document.addEventListener('click', e => {
   if (e.target.closest('[data-link]')) {
     e.preventDefault();
@@ -44,5 +50,4 @@ document.addEventListener('click', e => {
 });
 
 // initial render
-router();
-getPages();
+init();

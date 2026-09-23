@@ -9,8 +9,12 @@ class Nav extends HTMLElement {
     
     const links = pages
       .map(sheet => {
-        const name = sheet.properties.title;
-        return `<li><a data-link href="/${name.toLowerCase()}">${name}</a></li>`;
+        const originalName = sheet.properties.title;
+        const newName = originalName
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')  // anything non-alphanumeric → hyphen
+          .replace(/^-+|-+$/g, '');     // trim leading/trailing hyphens
+        return `<li><a data-link href="/${newName}">${originalName}</a></li>`;
       })
       .join('');
 
