@@ -15,7 +15,7 @@ async function getPages() {
 
 function createRenderer(sheet, id) {
   return function () {
-    return `<comp-page sheet="${sheet}" id="${id}"></comp-page>`;
+    return `<comp-page sheet="${sheet}" pageid="${id}"></comp-page>`;
   };
 }
 

@@ -10,7 +10,7 @@ class AdditionalTraining extends SheetPage {
     const subMenu = Object.entries(groups)
       .map(([type]) => `
         <a href="#${sanitizeString(type)}">
-          ${type}
+          ${type} <span>→</span>
         </a>`)
       .join('');
       

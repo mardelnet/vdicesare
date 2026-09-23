@@ -1,11 +1,11 @@
 class Pages extends HTMLElement {
   connectedCallback() {
     const sheet = this.getAttribute('sheet');
-    const id = this.getAttribute('id');
+    const id = this.getAttribute('pageid');
 
     if (id === 'grants-awards') {
       this.innerHTML = `
-        <section id="${id}">
+        <section>
           <div class="container">
             <h2>${sheet}</h2>
             <comp-page-grants-awards id="${id}" sheet="${sheet}"></comp-page-grants-awards>
@@ -14,7 +14,7 @@ class Pages extends HTMLElement {
       `;
     } else if (id === 'additional-training') {
       this.innerHTML = `
-        <section id="${id}">
+        <section>
           <div class="container">
             <h2>${sheet}</h2>
             <comp-page-additional-training id="${id}" sheet="${sheet}"></comp-page-additional-training>
@@ -45,7 +45,7 @@ class Pages extends HTMLElement {
       .join('');
 
     this.innerHTML = `
-      <section id="${id}">
+      <section>
         <div class="container">
           <h2>${sheet}</h2>
           <div>${items}<div>
