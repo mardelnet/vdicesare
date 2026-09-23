@@ -3,18 +3,16 @@ class GrantAwards extends SheetPage {
     const listItems = items
       .map((item, i) => `
         <div id="item-${i}" class="item">
+          <div class="year">${item.year}</div>
           <div class="info">${item.text}</div>
-          <div>
-            <span>${item.type}</span>
-            <span>${item.year}</span>
+          <div class="type">
+            <span class="${sanitizeString(item.type)}">${item.type}</span>
           </div>
         </div>`)
       .join('');
 
     return `
-      <div class="items">
-${listItems}
-      </div>
+      <div class="items">${listItems}</div>
     `;
   }
 }

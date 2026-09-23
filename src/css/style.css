@@ -35,6 +35,7 @@ main {
 }
 h1, h2, h3, h4, h5 {
     font-family: 'Cormorant', serif;
+    text-transform: capitalize;
     margin: 0;
 }
 ul, li {
