@@ -8,14 +8,22 @@ class Pages extends HTMLElement {
         <section id="${id}">
           <div class="container">
             <h2>${sheet}</h2>
-            <comp-page-grants-awards sheet="${sheet}"></comp-page-grants-awards>
+            <comp-page-grants-awards id="${id}" sheet="${sheet}"></comp-page-grants-awards>
           </div>
         </section>
       `;
-    }
-    else {
+    } else if (id === 'additional-training') {
+      this.innerHTML = `
+        <section id="${id}">
+          <div class="container">
+            <h2>${sheet}</h2>
+            <comp-page-additional-training id="${id}" sheet="${sheet}"></comp-page-additional-training>
+          </div>
+        </section>
+      `;
+    } else {
       this.loadHtml(sheet, id);
-    } 
+    }
   }
 
   async loadHtml(sheet, id) {
@@ -26,13 +34,13 @@ class Pages extends HTMLElement {
       .map(function (row) {
         var cells = row
           .filter(function (item) {
-            return item !== '' && item != null; // remove empty/null cells
+            return item !== '' && item != null;
           })
           .map(function (item) {
             return '<li>' + item + '</li>';
           })
           .join('');
-        return '<ul class="row">' + cells + '</ul>'; // group each row in its own <ul>
+        return '<ul class="row">' + cells + '</ul>';
       })
       .join('');
 

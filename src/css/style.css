@@ -48,12 +48,10 @@ h1 {
     color: var(--color5);
 }
 h2 {
-    margin: 0 0 12px;
-    padding: 0 0 12px;
+    margin: 0 0 36px;
     font-size: 36px;
     line-height: 1;
     color: var(--color2);
-    border-bottom: 1px solid var(--color4);
 }
 footer {
     background-color: var(--color2);
@@ -80,35 +78,6 @@ footer {
     }
     li {
         list-style: none;
-    }
-}
-.items {
-    margin-left: 16px;
-
-    .item {
-        display: flex;
-        flex-direction: row;
-        justify-content: start;
-        align-items: top;
-        text-align: left;
-        border-bottom: 1px solid var(--color4);
-
-        .type, .year {
-            width: fit-content;
-            flex-shrink: 0;
-        }
-        .type {
-            font-family: 'Cormorant', serif;
-            font-size: 20px;
-            font-weight: 700;
-        }
-        .info {
-            width: auto;
-            flex-grow: 1;
-        }
-        div {
-            padding: 6px 12px;
-        }
     }
 }
 #intro {
