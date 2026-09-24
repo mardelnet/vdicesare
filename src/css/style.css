@@ -218,3 +218,57 @@ header {
         }
     }
 }
+
+.scroller {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.scroller__viewport {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;   /* optional */
+  scrollbar-width: none;           /* Firefox */
+  -ms-overflow-style: none;
+}
+.scroller__viewport::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+
+.scroller__viewport > * {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+.scroller__btn:disabled {
+    opacity: .3; cursor: default;
+}
+
+.scroller__btn {
+  background-color: var(--color3);
+  border: 0;
+  color: white;
+  font-size: 10px;
+  line-height: 24px;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  flex-shrink: 0;
+  cursor: pointer;
+  position: relative;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+  &.scroller__btn--prev {
+    left: -12px;
+    transform: rotate(180deg);
+  }
+  &.scroller__btn--next {
+    right: -12px;
+    transform: rotate(0deg);
+  }
+}
