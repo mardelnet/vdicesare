@@ -11,7 +11,9 @@ class Nav extends HTMLElement {
       .map(sheet => {
         const originalName = sheet.properties.title;
         const newName = sanitizeString(originalName);
-        return `<li><a data-link href="/${newName}">${originalName}</a></li>`;
+        if (newName != 'globals') {
+          return `<li><a data-link href="/${newName}">${originalName}</a></li>`;
+        }
       })
       .join('');
 
