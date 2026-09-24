@@ -21,6 +21,7 @@ class SheetPage extends HTMLElement {
 
   // Subclasses override this to render their own markup
   async loadHtml(sheet) {
+    this.innerHTML = "Loading...";
     const items = await this.getItems(sheet);
     this.innerHTML = this.render(items);
   }

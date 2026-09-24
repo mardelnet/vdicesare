@@ -3,21 +3,19 @@ class Pages extends HTMLElement {
     const sheet = this.getAttribute('sheet');
     const id = this.getAttribute('pageid');
 
-    if (id === 'grants-awards') {
+    const pages = [
+      'grants-awards',
+      'additional-training',
+      'outreach',
+      'teaching'
+    ];
+
+    if (pages.includes(id)) {
       this.innerHTML = `
         <section>
           <div class="container">
             <h2>${sheet}</h2>
-            <comp-page-grants-awards id="${id}" sheet="${sheet}"></comp-page-grants-awards>
-          </div>
-        </section>
-      `;
-    } else if (id === 'additional-training') {
-      this.innerHTML = `
-        <section>
-          <div class="container">
-            <h2>${sheet}</h2>
-            <comp-page-additional-training id="${id}" sheet="${sheet}"></comp-page-additional-training>
+            <comp-page-${id} id="${id}" sheet="${sheet}"></comp-page-${id}>
           </div>
         </section>
       `;
