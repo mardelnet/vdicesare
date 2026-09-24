@@ -32,7 +32,7 @@ class AdditionalTraining extends SheetPage {
       .join('');
 
     return `
-      <nav>${subMenu}</nav>
+      <nav class="internal-links">${subMenu}</nav>
       <div class="grouped-items">${listItems}</div>
     `;
   }

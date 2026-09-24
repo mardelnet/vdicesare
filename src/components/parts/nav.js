@@ -1,10 +1,11 @@
 class Nav extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `<nav class="nav"><ul class="menu"><li>Loading...</li></ul></nav>`;
-    this.loadNav();
+    const title = this.getAttribute('title');
+    this.loadNav(title);
   }
 
-  async loadNav() {
+  async loadNav(title) {
     const pages = await getAllPages();
     
     const links = pages
@@ -20,15 +21,23 @@ class Nav extends HTMLElement {
     this.innerHTML = `
       <header class="header">
         <input class="side-menu" type="checkbox" id="side-menu"/>
-        <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
-        <div class="scroller menu">
+        <div class="title">
+          ${title}
+        </div>
+        <label class="hamb" for="side-menu">
+          <span class="hamb-line"></span>
+        </label>
+        <nav class="nav scroller menu">
           <button class="scroller__btn scroller__btn--prev" aria-label="Scroll left">▶</button>
           <div class="scroller__viewport" tabindex="0" role="region" aria-label="Items">
+            <label class="hamb" for="side-menu">
+              <span class="hamb-line"></span>
+            </label>
             <li><a data-link href="/">Home</a></li>
             ${links}
           </div>
           <button class="scroller__btn scroller__btn--next" aria-label="Scroll right">▶</button>
-        </div>
+        </nav>
       </header>
     `;
 

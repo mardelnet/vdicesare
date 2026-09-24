@@ -33,6 +33,8 @@ async function router() {
   currentPath = path;
 
   updateActiveLink(currentPath);
+  closeMobileMenu();
+
   const render = routes[path] || renderNotFound;
   document.getElementById('app').innerHTML = render();
 }

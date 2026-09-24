@@ -15,6 +15,14 @@ function sanitizeString(text) {
     .replace(/^-+|-+$/g, '');
 }
 
+function closeMobileMenu() {
+  const sideMenu = document.querySelector('#side-menu');
+  
+  if (sideMenu) {
+    sideMenu.checked = false;
+  }
+}
+
 function updateActiveLink(path) {
   if (!path) return;
 
