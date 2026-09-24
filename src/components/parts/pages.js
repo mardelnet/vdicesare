@@ -7,7 +7,8 @@ class Pages extends HTMLElement {
       'grants-awards',
       'additional-training',
       'outreach',
-      'teaching'
+      'teaching',
+      'education'
     ];
 
     if (pages.includes(id)) {
