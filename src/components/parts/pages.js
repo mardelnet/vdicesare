@@ -8,7 +8,9 @@ class Pages extends HTMLElement {
       'additional-training',
       'outreach',
       'teaching',
-      'education'
+      'education',
+      'publications',
+      'conferences'
     ];
 
     if (pages.includes(id)) {

@@ -1,0 +1,93 @@
+#conferences {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 24px;
+
+    h3 {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+    nav {
+        width: 60%;
+        background: var(--color4);
+        border-radius: 8px;
+        padding: 4px;
+        height: fit-content;
+        position: sticky;
+        top: 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        border-bottom: 1px solid var(--color4);
+        margin-bottom: 60px;
+        font-weight: bold;
+
+        a {
+            font-family: 'Cormorant', serif;
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            padding: 6px;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            text-transform: capitalize;
+
+            &:hover {
+                color: var(--color3);
+                background-color: white;
+                border-radius: 4px;
+            }
+            span {
+                margin-left: 4px;
+            }
+        }
+    }
+    .items {
+        .item {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--color4);
+            padding: 32px 0;
+
+            &:last-of-type {
+                border-bottom: 0;
+            }
+            h4 {
+                font-size: 20px;
+                line-height: 28px;
+                margin-bottom: 12px;
+                color: var(--color3);
+            }
+            .data {
+                border-left: 4px solid var(--color4);
+                padding-left: 12px;
+            }
+            .head {
+                display: flex;
+                flex-direction: row;
+                align-items:flex-start;
+                justify-content: space-between;
+            }
+            img {
+                width: 16px;
+                height: 16px;
+                object-fit: contain;
+                object-position: center;
+            }
+            a {
+                width: fit-content;
+                background-color: var(--color3);
+                display: inline-block;
+                color: white;
+                padding: 8px;
+                line-height: 16px;
+                border-radius: 4px;
+                text-decoration: none;
+                margin-left: 16px;
+            }
+        }
+    }
+}
