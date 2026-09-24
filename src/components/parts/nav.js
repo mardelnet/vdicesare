@@ -32,7 +32,8 @@ class Nav extends HTMLElement {
       </header>
     `;
 
-    navScroller(this);
+    navScroller();
+    updateActiveLink(window.location.pathname);
   }
 }
 customElements.define('comp-nav', Nav);

@@ -5,6 +5,13 @@
   font-display: swap;
   src: url('../../assets/fonts/Cormorant/Cormorant-VariableFont_wght.ttf') format('truetype-variations');
 }
+@font-face {
+  font-family: 'DM_Sans';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('../../assets/fonts/DM_Sans/DMSans-VariableFont_opsz\,wght.ttf') format('truetype-variations');
+}
 :root {
     --color1: #161A21;
     --color2: #2D3748;
@@ -19,16 +26,10 @@ html, body {
     scroll-padding-top: 80px;
     color: var(--color1);
     background-color: var(--color2);
-    font-family: Arial, Helvetica, sans-serif;
-    background-image: url(../../assets/images/PageOrnament70.svg);
-    background-repeat: repeat;
-    background-position: center;
-    background-size: 60px;
-    background-attachment: fixed;
+    font-family: 'DM_Sans', Helvetica, sans-serif;
     scroll-behavior: smooth;
     font-size: 16px;
     line-height: 24px;
-    letter-spacing: -0.5px;
 }
 main {
     background-color: var(--color5);
@@ -108,8 +109,7 @@ footer {
         border-radius: 50%;
         display: block;
         margin-right: 36px;
-        border: 5px solid var(--color5);
-        box-shadow: 0 0 24px var(--color5);
+        border: 5px solid var(--color3);
     }
 }
 header {
@@ -131,7 +131,7 @@ header {
     .menu {
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: flex-start;
         margin: 0 auto;
         width: 100%;
 
@@ -225,6 +225,10 @@ header {
   align-items: center;
   max-width: 900px;
   margin: 0 auto;
+
+  li.active {
+    background-color: var(--color5);
+  }
 }
 
 .scroller__viewport {

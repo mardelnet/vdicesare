@@ -15,7 +15,23 @@ function sanitizeString(text) {
     .replace(/^-+|-+$/g, '');
 }
 
-function navScroller(container = document) {
+function updateActiveLink(path) {
+  if (!path) return;
+
+  const headerItems = document.querySelectorAll('header li');
+
+  headerItems.forEach(item => {
+    const link = item.querySelector('a');
+
+    if (path == link.getAttribute('href')) {
+      item.classList.add('active');
+    } else {
+      item.classList.remove('active');
+    }
+  });
+}
+
+function navScroller() {
   document.querySelectorAll('.scroller').forEach((root) => {
     const viewport = root.querySelector('.scroller__viewport');
     const prev = root.querySelector('.scroller__btn--prev');

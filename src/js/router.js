@@ -32,6 +32,7 @@ async function router() {
   if (path === currentPath) return; // hash-only navigation, nothing to re-render
   currentPath = path;
 
+  updateActiveLink(currentPath);
   const render = routes[path] || renderNotFound;
   document.getElementById('app').innerHTML = render();
 }
