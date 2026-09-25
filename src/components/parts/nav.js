@@ -1,6 +1,5 @@
 class Nav extends HTMLElement {
   connectedCallback() {
-    this.innerHTML = `<nav class="nav"><ul class="menu"><li>Loading...</li></ul></nav>`;
     const title = this.getAttribute('title');
     this.loadNav(title);
   }

@@ -16,10 +16,7 @@ class Pages extends HTMLElement {
     if (pages.includes(id)) {
       this.innerHTML = `
         <section>
-          <div class="container">
-            <h2>${sheet}</h2>
-            <comp-page-${id} id="${id}" sheet="${sheet}"></comp-page-${id}>
-          </div>
+          <comp-page-${id} id="${id}" sheet="${sheet}"></comp-page-${id}>
         </section>
       `;
     } else {

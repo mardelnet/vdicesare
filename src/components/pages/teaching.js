@@ -9,7 +9,9 @@ class Teaching extends SheetPage {
       .join('');
 
     return `
-      <div class="items">${listItems}</div>
+      <div class="container">
+        <div class="items">${listItems}</div>
+      </div>
     `;
   }
 }

@@ -10,7 +10,7 @@ class Publications extends SheetPage {
     const subMenu = Object.entries(groups)
       .map(([type]) => `
         <a href="#${sanitizeString(type)}">
-          ${type} <span>→</span>
+          ${type}
         </a>`)
       .join('');
 
@@ -48,7 +48,9 @@ class Publications extends SheetPage {
 
     return `
       <nav class="internal-links">${subMenu}</nav>
-      <div class="items">${listItems}</div>
+      <div class="container">
+        <div class="items">${listItems}</div>
+      </div>
     `;
   }
 }

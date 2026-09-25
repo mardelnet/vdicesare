@@ -1,5 +1,7 @@
 class AdditionalTraining extends SheetPage {
   render(items) {
+    const sheet = this.getAttribute('sheet');
+
     // Group items by type
     const groups = items.reduce((acc, item) => {
       const type = item.type || 'Other';
@@ -10,7 +12,7 @@ class AdditionalTraining extends SheetPage {
     const subMenu = Object.entries(groups)
       .map(([type]) => `
         <a href="#${sanitizeString(type)}">
-          ${type} <span>→</span>
+          ${type}
         </a>`)
       .join('');
       
@@ -33,7 +35,10 @@ class AdditionalTraining extends SheetPage {
 
     return `
       <nav class="internal-links">${subMenu}</nav>
-      <div class="grouped-items">${listItems}</div>
+      <div class="container">
+        <h2>${sheet}</h2>
+        <div class="grouped-items">${listItems}</div>
+      </div>
     `;
   }
 }

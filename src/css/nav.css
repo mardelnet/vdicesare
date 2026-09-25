@@ -1,6 +1,7 @@
 header {
     &.header{
         background-color: var(--color3);
+        height: var(--nav-height);
         position: sticky;
         top: 0;
         width: 100%;
@@ -43,7 +44,7 @@ header {
             padding: 20px 12px;
             display: block;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 16px;
             color: var(--color1);
             text-decoration: none;
             text-transform: uppercase;
@@ -159,38 +160,38 @@ header {
             align-items: center;
             max-width: 900px;
             margin: 0 auto;
-            }
-            .scroller__viewport {
-                display: flex;
-                gap: 1rem;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;   /* optional */
-                scrollbar-width: none;           /* Firefox */
-                -ms-overflow-style: none;
-            }
-            .scroller__viewport::-webkit-scrollbar { 
-                display: none;
-            }
-            .scroller__viewport > * {
-                flex: 0 0 auto;
-                scroll-snap-align: start;
-            }
-            .scroller__btn:disabled {
-                opacity: .3; cursor: default;
-            }
-            .scroller__btn {
-                background-color: var(--color2);
-                border: 0;
-                color: white;
-                font-size: 10px;
-                line-height: 24px;
-                border-radius: 50%;
-                width: 24px;
-                height: 24px;
-                padding: 0;
-                flex-shrink: 0;
-                cursor: pointer;
-                position: relative;
+        }
+        .scroller__viewport {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;   /* optional */
+            scrollbar-width: none;           /* Firefox */
+            -ms-overflow-style: none;
+        }
+        .scroller__viewport::-webkit-scrollbar { 
+            display: none;
+        }
+        .scroller__viewport > * {
+            flex: 0 0 auto;
+            scroll-snap-align: start;
+        }
+        .scroller__btn:disabled {
+            opacity: .3; cursor: default;
+        }
+        .scroller__btn {
+            background-color: var(--color2);
+            border: 0;
+            color: white;
+            font-size: 10px;
+            line-height: 24px;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            padding: 0;
+            flex-shrink: 0;
+            cursor: pointer;
+            position: relative;
 
             &:hover {
                 filter: brightness(1.1);
@@ -203,6 +204,41 @@ header {
                 right: -12px;
                 transform: rotate(0deg);
             }
+        }
+    }
+}
+nav.internal-links {
+    width: 100%;
+    background-color: var(--color5);
+    border-bottom: 1px solid var(--color2);
+    height: fit-content;
+    position: sticky;
+    top: var(--nav-height);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    z-index: 0;
+    box-sizing: border-box;
+
+    @media (max-width: 768px) {
+        width: 100%;
+        top: 48px;
+        background-color: var(--color3);
+    }
+    a {
+        text-decoration: none;
+        color: var(--color2);
+        font-size: 14px;
+        padding: 6px 26px;
+        display: flex;
+        font-weight: 700;
+        justify-content: space-between;
+        flex-direction: row;
+        text-transform: uppercase;
+
+        &:hover {
+            color: white;
+            background-color: var(--color3);
         }
     }
 }
