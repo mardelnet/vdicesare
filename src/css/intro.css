@@ -7,6 +7,7 @@
         justify-content: start;
         align-items: center;
         margin: 0 auto;
+        padding: 36px 12px;
     }
     h1 {
         text-align: left;
@@ -25,13 +26,13 @@
         font-weight: 700;
     }
     img {
-        width: 160px;
-        height: 160px;
+        width: 130px;
+        height: 130px;
         object-fit: cover;
         object-position: center;
         border-radius: 50%;
         display: block;
-        margin-right: 36px;
+        margin-right: 28px;
         border: 5px solid var(--color3);
     }
     @media (max-width: 768px) {
