@@ -15,10 +15,10 @@
 }
 
 :root {
-    --color1: #161A21;
-    --color2: #2D3748;
-    --color3: #4F6474;
-    --color4: #B8A98E;
-    --color5: #E7DDCD;
+    --color1: #02122F;
+    --color2: #23354D;
+    --color3: #495B7D;
+    --color4: #8BA3C5;
+    --color5: #F0ECDD;
     --container-width: 768px;
 }

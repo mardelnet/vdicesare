@@ -1,6 +1,6 @@
 header {
     &.header{
-        background-color: var(--color4);
+        background-color: var(--color3);
         position: sticky;
         top: 0;
         width: 100%;
@@ -179,7 +179,7 @@ header {
                 opacity: .3; cursor: default;
             }
             .scroller__btn {
-                background-color: var(--color3);
+                background-color: var(--color2);
                 border: 0;
                 color: white;
                 font-size: 10px;
