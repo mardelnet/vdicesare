@@ -1,9 +1,30 @@
 #additional-training {
-    h3 {
-        font-size: 24px;
-        margin-bottom: 12px;
+    p {
+        margin: 0;
     }
-    .items {
-        margin-bottom: 48px;
+    .group:not(.group-peer-reviews) {
+        .items {
+            .item {
+                border-bottom: 0;
+
+                p {
+                    border: 1px solid var(--color4);
+                    padding: 20px 12px;
+                    margin: -1px 0 0;
+                    z-index: 0;
+                }
+                span {
+                    margin: 0;
+                    padding: 4px 12px;
+                    background-color: var(--color2);
+                    border-top: 1px solid var(--color4);
+                    border-left: 1px solid var(--color4);
+                    border-right: 1px solid var(--color4);
+                    border-bottom-left-radius: 0;
+                    border-bottom-right-radius: 0;
+                    z-index: 1;
+                }
+            }
+        }
     }
 }

@@ -3,7 +3,7 @@
   font-style: normal;
   font-weight: 300 700;
   font-display: swap;
-  src: url('../../assets/fonts/Cormorant/Cormorant-VariableFont_wght.ttf') format('truetype-variations');
+  src: url('../../assets/fonts/EB_Garamond/EBGaramond-VariableFont_wght.ttf') format('truetype-variations');
 }
 
 @font-face {
@@ -11,15 +11,15 @@
   font-style: normal;
   font-weight: 300 700;
   font-display: swap;
-  src: url('../../assets/fonts/DM_Sans/DMSans-VariableFont_opsz\,wght.ttf') format('truetype-variations');
+  src: url('../../assets/fonts/Crimson_Pro/CrimsonPro-VariableFont_wght.ttf') format('truetype-variations');
 }
 
 :root {
-    --color1: #02122F;
-    --color2: #23354D;
-    --color3: #495B7D;
-    --color4: #8BA3C5;
-    --color5: #F0ECDD;
+    --color1: #3D2B1F;
+    --color2: #303D57;
+    --color3: #A37C76;
+    --color4: #D9B382;
+    --color5: #E6D8C1;
     --container-width: 768px;
     --nav-height: 64px;
 }

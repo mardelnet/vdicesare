@@ -47,8 +47,8 @@ class Publications extends SheetPage {
       
 
     return `
-      <nav class="internal-links">${subMenu}</nav>
       <div class="container">
+        <nav class="internal-links">${subMenu}</nav>
         <div class="items">${listItems}</div>
       </div>
     `;

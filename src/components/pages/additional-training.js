@@ -18,15 +18,13 @@ class AdditionalTraining extends SheetPage {
       
       const listItems = Object.entries(groups)
       .map(([type, groupItems]) => `
-        <div class="group">
+        <div class="group group-${sanitizeString(type)}">
           <h3 id="${sanitizeString(type)}" class="group-title">${type}</h3>
           <div class="items">
             ${groupItems.map((item, i) => `
               <div id="item-${type}-${i}" class="item">
-                <div class="info">
-                  ${item.text}
-                </div>
                 ${item.year ? `<span>${item.year}</span>` : ''}
+                <p>${item.text}</p>
               </div>`)
               .join('')}
           </div>
