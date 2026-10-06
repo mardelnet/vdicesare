@@ -19,28 +19,26 @@ class Nav extends HTMLElement {
 
     this.innerHTML = `
       <header class="header">
-        <input class="side-menu" type="checkbox" id="side-menu"/>
         <div class="title">
           ${title}
         </div>
-        <label class="hamb" for="side-menu">
-          <span class="hamb-line"></span>
-        </label>
-        <nav class="nav scroller menu">
-          <button class="scroller__btn scroller__btn--prev" aria-label="Scroll left">▶</button>
-          <div class="scroller__viewport" tabindex="0" role="region" aria-label="Items">
-            <label class="hamb" for="side-menu">
-              <span class="hamb-line"></span>
-            </label>
-            <li><a data-link href="/">Home</a></li>
-            ${links}
+        <div class="end">
+          <a class="nav-item" href="/">Home</a>
+          <a class="nav-item" href="/contact">Contact</a>
+          <div id="menuToggle">
+            <input type="checkbox" id="menuCheckbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="menu">
+              ${links}
+            </ul>
           </div>
-          <button class="scroller__btn scroller__btn--next" aria-label="Scroll right">▶</button>
-        </nav>
+        </div>
       </header>
     `;
 
-    navScroller();
+    closeMenuOnClick();
     updateActiveLink(window.location.pathname);
   }
 }

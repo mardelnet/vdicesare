@@ -40,8 +40,8 @@ async function router() {
 }
 
 async function init() {
-  await getPages();   // wait for routes to be fully populated first
-  router();           // now render, with routes ready
+  await getPages();
+  router();
 }
 
 window.addEventListener('popstate', router);

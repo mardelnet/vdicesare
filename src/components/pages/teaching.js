@@ -1,5 +1,7 @@
 class Teaching extends SheetPage {
   render(items) {
+    const sheet = this.getAttribute('sheet');
+
     const listItems = items
       .map((item, i) => `
         <div id="item-${i}" class="item">
@@ -8,11 +10,7 @@ class Teaching extends SheetPage {
         </div>`)
       .join('');
 
-    return `
-      <div class="container">
-        <div class="items">${listItems}</div>
-      </div>
-    `;
+    return `<div class="items">${listItems}</div>`;
   }
 }
 customElements.define('comp-page-teaching', Teaching);

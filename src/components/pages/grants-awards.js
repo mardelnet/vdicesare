@@ -11,11 +11,7 @@ class GrantAwards extends SheetPage {
         </div>`)
       .join('');
 
-    return `
-      <div class="container">
-        <div class="items">${listItems}</div>
-      </div>
-    `;
+    return `<div class="items">${listItems}</div>`;
   }
 }
 customElements.define('comp-page-grants-awards', GrantAwards);

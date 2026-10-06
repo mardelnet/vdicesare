@@ -35,10 +35,7 @@ class AdditionalTraining extends SheetPage {
 
     return `
       <nav class="internal-links">${subMenu}</nav>
-      <div class="container">
-        <h2>${sheet}</h2>
-        <div class="grouped-items">${listItems}</div>
-      </div>
+      <div class="grouped-items">${listItems}</div>
     `;
   }
 }

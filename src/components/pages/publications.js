@@ -1,5 +1,7 @@
 class Publications extends SheetPage {
   render(items) {
+    const sheet = this.getAttribute('sheet');
+    
     // Group items by type
     const groups = items.reduce((acc, item) => {
       const type = item.type || 'Other';
@@ -29,15 +31,15 @@ class Publications extends SheetPage {
                     </a>` : ''}
               </div>
               <div class="data">
-                <strong>Source:</strong> ${item.source} <br>
-                <strong>Authors:</strong> ${item.authors} <br>
-                <strong>Institution:</strong> ${item.institution} <br>
-                <strong>Year:</strong> ${item.year} <br>
-                <strong>Volume:</strong> ${item.volume} <br>
-                <strong>Pages:</strong> ${item.pages} <br>
-                <strong>Editor:</strong> ${item.editor} <br>
-                <strong>Book Title:</strong> ${item.book_title} <br>
-                <strong>Publisher:</strong> ${item.publisher}
+                ${item.source ? `<strong>Source:</strong> ${item.source}<br>` : ''}
+                ${item.authors ? `<strong>Authors:</strong> ${item.authors}<br>` : ''}
+                ${item.institution ? `<strong>Institution:</strong> ${item.institution}<br>` : ''}
+                ${item.year ? `<strong>Year:</strong> ${item.year}<br>` : ''}
+                ${item.volume ? `<strong>Volume:</strong> ${item.volume}<br>` : ''}
+                ${item.pages ? `<strong>Pages:</strong> ${item.pages}<br>` : ''}
+                ${item.editor ? `<strong>Editor:</strong> ${item.editor}<br>` : ''}
+                ${item.book_title ? `<strong>Book Title:</strong> ${item.book_title}<br>` : ''}
+                ${item.publisher ? `<strong>Publisher:</strong> ${item.publisher}` : ''}
               </div>
             </div>`)
             .join('')}
@@ -48,9 +50,7 @@ class Publications extends SheetPage {
 
     return `
       <nav class="internal-links">${subMenu}</nav>
-      <div class="container">
-        <div class="items">${listItems}</div>
-      </div>
+      <div class="items">${listItems}</div>
     `;
   }
 }

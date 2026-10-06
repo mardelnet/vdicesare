@@ -41,9 +41,7 @@ class Conferences extends SheetPage {
 
     return `
       <nav class="internal-links">${subMenu}</nav>
-      <div class="container">
-        <div class="items">${listItems}</div>
-      </div>
+      <div class="items">${listItems}</div>
     `;
   }
 }

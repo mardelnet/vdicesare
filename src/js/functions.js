@@ -39,26 +39,13 @@ function updateActiveLink(path) {
   });
 }
 
-function navScroller() {
-  document.querySelectorAll('.scroller').forEach((root) => {
-    const viewport = root.querySelector('.scroller__viewport');
-    const prev = root.querySelector('.scroller__btn--prev');
-    const next = root.querySelector('.scroller__btn--next');
+function closeMenuOnClick() {
+  const toggle = document.querySelector('#menuToggle input');
+  const menu = document.querySelector('#menu');
 
-    const update = () => {
-      const max = viewport.scrollWidth - viewport.clientWidth;
-      prev.disabled = viewport.scrollLeft <= 1;
-      next.disabled = viewport.scrollLeft >= max - 1;
-    };
-
-    const scrollByPage = (dir) =>
-      viewport.scrollBy({ left: dir * viewport.clientWidth * 0.8, behavior: 'smooth' });
-
-    prev.addEventListener('click', () => scrollByPage(-1));
-    next.addEventListener('click', () => scrollByPage(1));
-
-    viewport.addEventListener('scroll', update, { passive: true });
-    new ResizeObserver(update).observe(viewport);
-    update();
+  menu.addEventListener('click', (e) => {
+    if (e.target.closest('a')) {
+      toggle.checked = false;
+    }
   });
 }

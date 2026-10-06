@@ -3,7 +3,7 @@
   font-style: normal;
   font-weight: 300 700;
   font-display: swap;
-  src: url('../../assets/fonts/Cormorant/Cormorant-VariableFont_wght.ttf') format('truetype-variations');
+  src: url('../../assets/fonts/Trocchi/Trocchi-Regular.ttf') format('truetype-variations');
 }
 
 @font-face {
@@ -11,15 +11,16 @@
   font-style: normal;
   font-weight: 300 700;
   font-display: swap;
-  src: url('../../assets/fonts/DM_Sans/DMSans-VariableFont_opsz\,wght.ttf') format('truetype-variations');
+  src: url('../../assets/fonts/Neuton/Neuton-Regular.ttf') format('truetype-variations');
 }
 
 :root {
-    --color1: #02122F;
-    --color2: #23354D;
-    --color3: #495B7D;
-    --color4: #8BA3C5;
-    --color5: #F0ECDD;
-    --container-width: 768px;
+    --color1: #584B53;
+    --color2: #02122F;
+    --color3: #9D5C63;
+    --color4: #E4BB97;
+    --color5: #E5F0FA;
+    --color6: #FEF5EF;
+    --container-width: 900px;
     --nav-height: 64px;
 }

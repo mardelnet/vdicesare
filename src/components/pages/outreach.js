@@ -15,11 +15,7 @@ class Outreach extends SheetPage {
         </div>`)
       .join('');
 
-    return `
-      <div class="container">
-        <div class="items">${listItems}</div>
-      </div>
-    `;
+    return `<div class="items">${listItems}</div>`;
   }
 }
 customElements.define('comp-page-outreach', Outreach);
