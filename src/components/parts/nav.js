@@ -6,8 +6,6 @@ class Nav extends HTMLElement {
 
   async loadNav(title) {
     const pages = await getAllPages();
-
-    console.log(title)
     
     const links = pages
       .map(sheet => {
@@ -39,7 +37,6 @@ class Nav extends HTMLElement {
           </div>
           <button class="scroller__btn scroller__btn--next" aria-label="Scroll right">▶</button>
         </nav>
-        <button>aaa</button>
       </header>
     `;
 

@@ -14,7 +14,11 @@ class Pages extends HTMLElement {
     ];
 
     if (pages.includes(id)) {
-      this.innerHTML = `<comp-page-${id} id="${id}" sheet="${sheet}"></comp-page-${id}>`;
+      this.innerHTML = `
+        <section>
+          <comp-page-${id} id="${id}" sheet="${sheet}"></comp-page-${id}>
+        </section>
+      `;
     } else {
       this.loadHtml(sheet, id);
     }
