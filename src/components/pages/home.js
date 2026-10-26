@@ -32,8 +32,8 @@ class Home extends HTMLElement {
     this.innerHTML = `
       <div class="container">
         <div class="profile-pic-container">
-          <img src="assets/images/wooden-frame.png" alt="" />
           <img src="assets/images/picture.png" alt="" />
+          <div class="frame"></div>
         </div>
         <div>
           <h1>${get('title')}</h1>
