@@ -23,22 +23,6 @@ function closeMobileMenu() {
   }
 }
 
-function updateActiveLink(path) {
-  if (!path) return;
-
-  const headerItems = document.querySelectorAll('header li');
-
-  headerItems.forEach(item => {
-    const link = item.querySelector('a');
-
-    if (path == link.getAttribute('href')) {
-      item.classList.add('active');
-    } else {
-      item.classList.remove('active');
-    }
-  });
-}
-
 function closeMenuOnClick() {
   const toggle = document.querySelector('#menuToggle input');
   const menu = document.querySelector('#menu');

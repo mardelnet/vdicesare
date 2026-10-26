@@ -1,8 +1,7 @@
 class Home extends HTMLElement {
   connectedCallback() {
-    const sheet = this.getAttribute('sheet');
     this.loadStyles();
-    this.loadHtml(sheet);
+    this.loadHtml();
   }
 
   loadStyles() {
@@ -20,23 +19,28 @@ class Home extends HTMLElement {
     document.querySelector('link[data-page-style="home"]')?.remove();
   }
 
-  async loadHtml(sheet) {
+  async loadHtml() {
     const rows = await getSheetData('Globals');
+    const get = (k) => rows.find(([key]) => key === k)?.[1]?.trim() ?? '';
+
+    const positions = [1, 2, 3]
+      .map((n) => get(`current_position_${n}`))
+      .filter(Boolean)
+      .map((p) => `<li>${p}</li>`)
+      .join('');
 
     this.innerHTML = `
       <div class="container">
-        <div>
+        <div class="profile-pic-container">
+          <img src="assets/images/wooden-frame.png" alt="" />
           <img src="assets/images/picture.png" alt="" />
         </div>
         <div>
-          <h1>${rows.find(([key]) => key === 'title')?.[1]}</h1>
-          <h2>${rows.find(([key]) => key === 'subtitle')?.[1]}</h2>
-          <ul>
-            <li>${rows.find(([key]) => key === 'current_position_1')?.[1]}</li>
-            <li>${rows.find(([key]) => key === 'current_position_2')?.[1]}</li>
-            <li>${rows.find(([key]) => key === 'current_position_3')?.[1]}</li>
-          </ul>
+          <h1>${get('title')}</h1>
+          <h2>${get('subtitle')}</h2>
+          ${positions}
         </div>
+      </div>
     `;
   }
 }

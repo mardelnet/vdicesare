@@ -1,5 +1,5 @@
 #intro {
-    background: linear-gradient(180deg, var(--color1), var(--color2));
+    background: linear-gradient(180deg, var(--color1), var(--color3));
 
     .container {
         display: flex;

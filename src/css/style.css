@@ -23,7 +23,6 @@ main {
 }
 h1, h2, h3, h4, h5 {
     font-family: 'Cormorant', serif;
-    text-transform: capitalize;
     margin: 0;
 }
 ul, li {
@@ -34,7 +33,7 @@ h2 {
     margin: 0 0 36px;
     font-size: 36px;
     line-height: 1;
-    color: var(--color2);
+    color: var(--color1);
 }
 .container {
     width: 100%;
@@ -93,6 +92,6 @@ h2 {
     font-size: 24px;
     padding: 4px 12px;
     text-transform: uppercase;
-    background-color: var(--color2);
+    background-color: var(--color1);
     color: var(--color5);
 }

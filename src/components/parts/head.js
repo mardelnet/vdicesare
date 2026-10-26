@@ -1,14 +1,45 @@
 class Head extends HTMLElement {
   connectedCallback() {
-    this.loadHtml('Globals');
+    this.loadNav();
   }
 
-  async loadHtml(sheet) {
-    const rows = await getSheetData(sheet);
+  async loadNav() {
+    const pages = await getAllPages();
     
+    const links = pages
+      .map(sheet => {
+        const originalName = sheet.properties.title;
+        const newName = sanitizeString(originalName);
+        if (newName != 'globals') {
+          return `<li><a data-link href="/${newName}">${originalName}</a></li>`;
+        }
+      })
+      .join('');
+
     this.innerHTML = `
-      <comp-nav title="${rows.find(([key]) => key === 'title')?.[1]}"></comp-nav>
+      <header class="header">
+        <div class="title">
+          <a href="/" target="_self">
+            Victoria Di Césare
+          </a>
+        </div>
+        <div class="end">
+          <a class="nav-item" href="/">Home</a>
+          <a class="nav-item" href="/contact">Contact</a>
+          <div id="menuToggle">
+            <input type="checkbox" id="menuCheckbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="menu">
+              ${links}
+            </ul>
+          </div>
+        </div>
+      </header>
     `;
+
+    closeMenuOnClick();
   }
 }
 customElements.define('comp-head', Head);

@@ -32,7 +32,6 @@ async function router() {
   if (path === currentPath) return; // hash-only navigation, nothing to re-render
   currentPath = path;
 
-  updateActiveLink(currentPath);
   closeMobileMenu();
 
   const render = routes[path] || renderNotFound;

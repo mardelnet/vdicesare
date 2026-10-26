@@ -1,15 +1,17 @@
 footer {
+    background-image: url("../../assets/images/wooden-decoration.png");
+    background-repeat: repeat-x;
+    background-size: 100px;
+    background-position: center top;
     background-color: var(--color4);
-    border-top: 8px dashed var(--color3);
-    padding: 48px 0;
+    padding: 96px 0 48px;
 
     .links, .social {
-        max-width: 1024px;
         margin: 0 auto;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 16px;
+        gap: 32px;
 
         li {
             list-style: none;
@@ -17,13 +19,28 @@ footer {
         a {
             font-size: 20px;
             color: var(--color1);
-            text-decoration-style: dashed;
-            text-underline-offset: 4px;
+            text-decoration: none;
 
             &:hover {
                 color: var(--color3);
                 text-decoration-style: solid;
             }
+        }
+    }
+    .links li {
+        position: relative;
+
+        &::after {
+            content: "•";
+            display: block;
+            top: 2px;
+            bottom: 0;
+            right: -16px;
+            margin: auto;
+            position: absolute;
+        }
+        &:last-of-type::after {
+            display: none;
         }
     }
     .social {
