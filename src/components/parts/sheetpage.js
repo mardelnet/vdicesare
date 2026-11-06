@@ -2,7 +2,7 @@ class SheetPage extends HTMLElement {
   connectedCallback() {
     const sheet = this.getAttribute('sheet');
     this.loadHtml(sheet);
-    loadStyles(this.id);
+    // loadStyles(this.id);
   }
 
   disconnectedCallback() {

@@ -6,11 +6,11 @@ class Education extends SheetPage {
       .map((item, i) => `
         <div id="item-${i}" class="item">
           <div>
-            ${item.text}<br>
-            <em>${item.location}</em>
+            <h4>${item.text}</h4>
           </div>
-          <div>
-            <span>${item.extra}</span>
+          <div class="data">
+            <strong>Location:</strong> ${item.location}<br>
+            ${item.extra}
           </div>
         </div>`)
       .join('');

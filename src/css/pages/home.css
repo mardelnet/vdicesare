@@ -1,3 +1,10 @@
+header .title a {
+    font-size: 0;
+}
+header .title a:after {
+    content: "Welcome!";
+    font-size: 20px;
+}
 .container {
     display: flex;
     justify-content: flex-start;

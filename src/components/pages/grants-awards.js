@@ -3,10 +3,10 @@ class GrantAwards extends SheetPage {
     const listItems = items
       .map((item, i) => `
         <div id="item-${i}" class="item">
-          <div class="year">${item.year}</div>
-          <div class="info">${item.text}</div>
-          <div class="type">
-            <span class="${sanitizeString(item.type)}">${item.type}</span>
+          <h4>${item.text}</h4>
+          <div class="data">
+            <strong>Year:</strong> ${item.year} <br>
+            <strong>Type:</strong> ${item.type}
           </div>
         </div>`)
       .join('');

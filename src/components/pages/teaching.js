@@ -1,12 +1,12 @@
 class Teaching extends SheetPage {
   render(items) {
-    const sheet = this.getAttribute('sheet');
-
     const listItems = items
       .map((item, i) => `
         <div id="item-${i}" class="item">
-          <div class="info">${item.text}</div>
-          <div class="year"><span>${item.year}</span></div>
+          <h4>${item.text}</h4>
+          <div class="data">
+            <strong>Years:</strong> ${item.year}
+          </div>
         </div>`)
       .join('');
 

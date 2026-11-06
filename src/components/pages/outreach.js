@@ -3,14 +3,15 @@ class Outreach extends SheetPage {
     const listItems = items
       .map((item, i) => `
         <div id="item-${i}" class="item">
-          <div>
-            <a target="_blank" href="${item.link}">
-              <img src="/assets/images/icon-external-link.svg" />
-            </a>
+          <div class="head">
+            <h4>${item.text}</h4>
+            ${item.link ? `
+              <a href="${item.link}" target="_blank">
+                <img src="/assets/images/icon-external-link.svg" />
+              </a>` : ''}
           </div>
-          <div>
-            <em>${item.date}</em><br>
-            ${item.text}
+          <div class="data">
+            <strong>Date:</strong> ${item.date}
           </div>
         </div>`)
       .join('');

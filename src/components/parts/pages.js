@@ -10,7 +10,8 @@ class Pages extends HTMLElement {
       'teaching',
       'education',
       'publications',
-      'conferences'
+      'conferences',
+      'research-groups-projects'
     ];
 
     if (pages.includes(id)) {

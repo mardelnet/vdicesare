@@ -7,42 +7,36 @@ class Conferences extends SheetPage {
       return acc;
     }, {});
 
-    const subMenu = Object.entries(groups)
-      .map(([type]) => `
-        <a href="#${sanitizeString(type)}">
-          ${type}
-        </a>`)
+    const entries = Object.entries(groups);
+
+    const gridItems = entries
+      .map(([type, groupItems], n) => `
+        <details id="${sanitizeString(type)}" name="conferences" style="--n: ${n + 1}" ${n === 0 ? 'open' : ''}>
+          <summary>${type}</summary>
+          <div class="items">
+            ${groupItems.map((item) => `
+              <div class="item">
+                <div class="head">
+                  <h4>${item.title}</h4>
+                  ${item.link ? `
+                    <a href="${item.link}" target="_blank">
+                      <img src="/assets/images/icon-external-link.svg" />
+                    </a>` : ''}
+                </div>
+                <div class="data">
+                  <strong>Conference:</strong> ${item.conference} <br>
+                  <strong>Authors:</strong> ${item.authors} <br>
+                  <strong>Institution:</strong> ${item.institution} <br>
+                  <strong>Date:</strong>${item.date} <br>
+                  <strong>Location:</strong> ${item.city}, ${item.country}
+                </div>
+              </div>`)
+              .join('')}
+          </div>
+        </details>`)
       .join('');
 
-    const listItems = Object.entries(groups)
-    .map(([type, groupItems]) => `
-      <div class="group">
-        <h3 id="${sanitizeString(type)}" class="group-title">${type}</h3>
-        <div class="items">
-          ${groupItems.map((item, i) => `
-            <div class="item">
-              <h4>${item.title}</h4>
-              <div class="data">
-                <strong>Conference:</strong> ${item.conference} <br>
-                <strong>Authors:</strong> ${item.authors} <br>
-                <strong>Institution:</strong> ${item.institution} <br>
-                ${item.date}. ${item.city}, ${item.country}
-              </div>
-              ${item.link ? 
-                `<a href="${item.link}" target="_blank">
-                  External Link <img src="/assets/images/icon-external-link.svg" />
-                </a>` : ''}
-            </div>`)
-            .join('')}
-        </div>
-      </div>`)
-    .join('');
-      
-
-    return `
-      <nav class="internal-links">${subMenu}</nav>
-      <div class="items">${listItems}</div>
-    `;
+    return `<div class="grid-tabs" style="--cols: ${entries.length}">${gridItems}</div>`;
   }
 }
 customElements.define('comp-page-conferences', Conferences);

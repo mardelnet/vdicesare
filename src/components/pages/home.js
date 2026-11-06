@@ -1,17 +1,7 @@
 class Home extends HTMLElement {
   connectedCallback() {
-    this.loadStyles();
+    loadStyles("home");
     this.loadHtml();
-  }
-
-  loadStyles() {
-    if (!document.querySelector('link[data-page-style="home"]')) {
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = './src/css/pages/home.css';
-      link.dataset.pageStyle = 'home';
-      document.head.appendChild(link);
-    }
   }
 
   disconnectedCallback() {
@@ -32,7 +22,7 @@ class Home extends HTMLElement {
     this.innerHTML = `
       <div class="container">
         <div class="profile-pic-container">
-          <img src="assets/images/picture.png" alt="" />
+          <img src="assets/images/victoria.jpg" alt="" />
           <div class="frame"></div>
         </div>
         <div>
