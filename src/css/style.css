@@ -1,6 +1,7 @@
 @import url(base.css);
 @import url(intro.css);
 @import url(items.css);
+@import url(grid-tabs.css);
 @import url(header.css);
 @import url(footer.css);
 
@@ -15,12 +16,19 @@ html, body {
     font-size: 18px;
     line-height: 24px;
     overflow-x: hidden;
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 main {
     background-color: var(--color5);
     background-image: url("../../assets/images/blue-snow.png");
     background-attachment: fixed;
     padding: 160px 0 80px;
+    flex: 1 0 auto; /* grows to fill available space */
 }
 h1, h2, h3, h4, h5 {
     font-family: 'Cormorant', serif;
@@ -67,80 +75,4 @@ h2 {
     text-transform: uppercase;
     background-color: var(--color1);
     color: var(--color5);
-}
-
-.grid-tabs {
-  display: grid;
-  grid-template-columns: repeat(var(--cols, 3), minmax(160px, 1fr));
-  grid-template-rows: auto 1fr;
-  column-gap: 0;
-  border: 1px solid var(--color5);
-  border-radius: 12px;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.grid-tabs details {
-  display: grid;
-  grid-column: 1 / -1;
-  grid-row: 1 / span 2;
-  grid-template-columns: subgrid;
-  grid-template-rows: subgrid;
-  pointer-events: none;
-}
-
-.grid-tabs .items {
-    pointer-events: all;
-}
-
-.grid-tabs summary {
-  grid-column: var(--n) / span 1;
-  grid-row: 1;
-  display: grid;
-  padding: 1rem;
-  cursor: pointer;
-  z-index: 1;
-  font-size: 16px;
-  text-transform: capitalize;
-  font-family: 'Cormorant', sans-serif;
-  border-right: 1px solid var(--color5);
-  border-bottom: 1px solid var(--color5);
-  pointer-events: all;
-}
-
-.grid-tabs summary:hover {
-    background-color: var(--color5);
-    filter: saturate(0.5);
-}
-
-.grid-tabs details:last-of-type summary {
-    border-right: 0;
-}
-
-.grid-tabs details[open] :is(summary, .summary) {
-  font-weight: bold;
-  pointer-events: none;
-  background-color: var(--color5);
-}
-
-.grid-tabs details::details-content {
-  grid-row: 2;
-  grid-column: 1 / -1;
-  padding: 1rem;
-}
-
- .grid-tabs details:not([open])::details-content {
-  display: none;
-}
-
-@media screen and (width < 40em) {
-  .grid-tabs {
-    grid-template-columns: repeat(var(--cols, 3), minmax(100px, 1fr));
-    column-gap: .5rem;
-  }
-
-  .grid-tabs summary,
-  .grid-tabs details::details-content {
-    padding: .5rem;
-  }
 }
