@@ -22,7 +22,7 @@ class Home extends HTMLElement {
     this.innerHTML = `
       <div class="container">
         <div class="profile-pic-container">
-          <img src="assets/images/victoria.jpg" alt="" />
+          <img src="assets/images/victoria.webp" alt="" />
           <div class="frame"></div>
           <div class="caption">${get('photo_caption')}</div>
         </div>
