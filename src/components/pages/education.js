@@ -9,7 +9,7 @@ class Education extends SheetPage {
             <h4>${item.text}</h4>
           </div>
           <div class="data">
-            <strong>Location:</strong> ${item.location}<br>
+            ${item.location}<br>
             ${item.extra}
           </div>
         </div>`)

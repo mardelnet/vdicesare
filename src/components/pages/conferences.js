@@ -28,7 +28,7 @@ class Conferences extends SheetPage {
                   <strong>Authors:</strong> ${item.authors} <br>
                   <strong>Institution:</strong> ${item.institution} <br>
                   <strong>Date:</strong>${item.date} <br>
-                  <strong>Location:</strong> ${item.city}, ${item.country}
+                  <strong>Location:</strong> ${item.country}
                 </div>
               </div>`)
               .join('')}

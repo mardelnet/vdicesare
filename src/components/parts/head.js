@@ -5,6 +5,7 @@ class Head extends HTMLElement {
 
   async loadNav() {
     const pages = await getAllPages();
+    const rows = await getSheetData('Globals');
     
     const links = pages
       .map(sheet => {
@@ -17,6 +18,7 @@ class Head extends HTMLElement {
       .join('');
 
     this.innerHTML = `
+      <div id="scroll-sentinel" style="position:absolute; top:0; height:1px; width:1px;"></div>
       <header class="header">
         <div class="title">
           <a href="/" target="_self">
@@ -24,14 +26,15 @@ class Head extends HTMLElement {
           </a>
         </div>
         <div class="end">
-          <a class="nav-item" href="/">Home</a>
-          <a class="nav-item" href="/contact">Contact</a>
+          <a class="nav-item home-link" href="/">Home</a>
+          <a class="nav-item" href="mailto:${rows.find(([key]) => key === 'Email')?.[1]}">Contact</a>
           <div id="menuToggle">
             <input type="checkbox" id="menuCheckbox" />
             <span></span>
             <span></span>
             <span></span>
             <ul id="menu">
+              <li class="home-link"><a href="/" target="_self">Home</a></li>
               ${links}
             </ul>
           </div>
@@ -40,6 +43,7 @@ class Head extends HTMLElement {
     `;
 
     closeMenuOnClick();
+    toggleNavClasses();
   }
 }
 customElements.define('comp-head', Head);

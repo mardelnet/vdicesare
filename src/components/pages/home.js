@@ -24,6 +24,7 @@ class Home extends HTMLElement {
         <div class="profile-pic-container">
           <img src="assets/images/victoria.jpg" alt="" />
           <div class="frame"></div>
+          <div class="caption">${get('photo_caption')}</div>
         </div>
         <div>
           <h1>${get('title')}</h1>

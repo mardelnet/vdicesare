@@ -33,3 +33,15 @@ function closeMenuOnClick() {
     }
   });
 }
+
+function toggleNavClasses() {
+  const header = document.querySelector('.header');
+  const threshold = 25;
+
+  const onScroll = () => {
+    header.classList.toggle('is-scrolled', document.body.scrollTop > threshold);
+  };
+
+  document.body.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}

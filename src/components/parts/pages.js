@@ -4,14 +4,14 @@ class Pages extends HTMLElement {
     const id = this.getAttribute('pageid');
 
     const pages = [
-      'grants-awards',
+      'other-achievements',
       'additional-training',
       'outreach',
       'teaching',
       'education',
       'publications',
       'conferences',
-      'research-groups-projects'
+      'research-activity'
     ];
 
     if (pages.includes(id)) {

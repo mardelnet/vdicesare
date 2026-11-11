@@ -11,7 +11,7 @@ class Outreach extends SheetPage {
               </a>` : ''}
           </div>
           <div class="data">
-            <strong>Date:</strong> ${item.date}
+            ${item.date}
           </div>
         </div>`)
       .join('');
