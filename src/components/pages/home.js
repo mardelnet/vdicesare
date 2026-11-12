@@ -25,19 +25,24 @@ class Home extends HTMLElement {
           <img
             src="assets/images/victoria-480.webp"
             srcset="
-              assets/images/victoria-320.webp   320w,
-              assets/images/victoria-480.webp   480w,
-              assets/images/victoria-650.webp   650w
+              assets/images/victoria-320.webp 320w,
+              assets/images/victoria-480.webp 480w,
+              assets/images/victoria-650.webp 650w
             "
             sizes="(max-width: 600px) 80vw, 400px"
             width="400"
             height="400"
-            alt=""
+            alt="Portrait of Victoria Di Césare"
             fetchpriority="high"
           />
-          <div class="frame"></div>
-          <div class="caption">${get('photo_caption')}</div>
+
+          <div class="frame" aria-hidden="true"></div>
+
+          <div class="caption">
+            ${get('photo_caption')}
+          </div>
         </div>
+
         <div>
           <h1>${get('title')}</h1>
           <h2>${get('subtitle')}</h2>
