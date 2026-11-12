@@ -8,7 +8,7 @@ class GrantAwards extends SheetPage {
     }, {});
 
     const entries = Object.entries(groups);
-    
+
     const gridItems = entries
       .map(([type, groupItems], n) => `
         <details id="${sanitizeString(type)}" name="achievemens" style="--n: ${n + 1}" ${n === 0 ? 'open' : ''}>
@@ -24,7 +24,8 @@ class GrantAwards extends SheetPage {
                     </a>` : ''}
                 </div>
                 <div class="data">
-                  ${item.year}
+                  ${item.year ? `${item.year} <br>` : ''}
+                  ${item.country ? `${item.country}` : ''}
                 </div>
               </div>`)
               .join('')}

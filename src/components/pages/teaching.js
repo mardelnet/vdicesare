@@ -5,7 +5,8 @@ class Teaching extends SheetPage {
         <div id="item-${i}" class="item">
           <h4>${item.text}</h4>
           <div class="data">
-            ${item.year}
+            ${item.year ? `${item.year} <br>` : ''}
+            ${item.country ? `${item.country}` : ''}
           </div>
         </div>`)
       .join('');

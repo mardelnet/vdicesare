@@ -17,18 +17,15 @@ class Conferences extends SheetPage {
             ${groupItems.map((item) => `
               <div class="item">
                 <div class="head">
-                  <h4>${item.title}</h4>
+                  <p>
+                    ${item.text1}
+                    <span class="apa-title">${item.title}</span>
+                    ${item.text2}
+                  </p>
                   ${item.link ? `
                     <a href="${item.link}" target="_blank">
                       <img src="/assets/images/icon-external-link.svg" />
                     </a>` : ''}
-                </div>
-                <div class="data">
-                  <strong>Conference:</strong> ${item.conference} <br>
-                  <strong>Authors:</strong> ${item.authors} <br>
-                  <strong>Institution:</strong> ${item.institution} <br>
-                  <strong>Date:</strong>${item.date} <br>
-                  <strong>Location:</strong> ${item.country}
                 </div>
               </div>`)
               .join('')}

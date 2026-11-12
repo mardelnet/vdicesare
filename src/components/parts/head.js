@@ -36,6 +36,7 @@ class Head extends HTMLElement {
             <ul id="menu">
               <li class="home-link"><a href="/" target="_self">Home</a></li>
               ${links}
+              <li class="home-link"><a href="mailto:${rows.find(([key]) => key === 'Email')?.[1]}" target="_self">Contact</a></li>
             </ul>
           </div>
         </div>

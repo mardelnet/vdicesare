@@ -1,5 +1,6 @@
 class Outreach extends SheetPage {
   render(items) {
+
     const listItems = items
       .map((item, i) => `
         <div id="item-${i}" class="item">
@@ -11,7 +12,8 @@ class Outreach extends SheetPage {
               </a>` : ''}
           </div>
           <div class="data">
-            ${item.date}
+            ${item.date ? `${item.date} <br>` : ''}
+            ${item.country ? `${item.country}` : ''}
           </div>
         </div>`)
       .join('');

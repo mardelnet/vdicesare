@@ -18,8 +18,9 @@ class AdditionalTraining extends SheetPage {
               <div id="item-${sanitizeString(type)}-${i}" class="item">
                 <h4>${item.text}</h4>
                 <div class="data">
-                  ${item.year ? `${item.year}` : ''}
-                  ${item.reviews ? `<strong>Reviews:</strong> ${item.reviews}` : ''}
+                  ${item.extra ? `${item.extra} <br>` : ''}
+                  ${item.year ? `${item.year} <br>` : ''}
+                  ${item.country ? `${item.country}` : ''}
                 </div>
               </div>`)
               .join('')}

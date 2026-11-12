@@ -118,6 +118,17 @@ nav.internal-links {
     @media (min-width: 960px) {
       display: none;
     }
+
+    &:last-of-type {
+      a {
+        display: inline-block;
+        width: calc(100% - (var(--header-padding-x) * 2));
+        padding: 8px 24px;
+        border-radius: 4px;
+        text-align: center;
+        background-color: var(--color4);
+      }
+    }
   }
   span {
     display: block;
@@ -150,7 +161,7 @@ nav.internal-links {
   &:checked ~ span {
     opacity: 1;
     transform: rotate(45deg) translate(-2px, -1px);
-    background: #232323;
+    background: var(--color3);
 
     &:nth-last-child(3) {
       opacity: 0;
@@ -191,7 +202,7 @@ nav.internal-links {
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 
   li {
-    padding: 20px 0;
+    padding: 12px 0;
     font-size: 22px;
     margin: 0;
     line-height: 1;

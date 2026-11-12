@@ -22,8 +22,20 @@ class Home extends HTMLElement {
     this.innerHTML = `
       <div class="container">
         <div class="profile-pic-container">
-          <img src="assets/images/victoria.webp" alt="" fetchpriority=high />
-          <div class="frame" fetchpriority=high></div>
+          <img
+            src="assets/images/victoria-480.webp"
+            srcset="
+              assets/images/victoria-320.webp   320w,
+              assets/images/victoria-480.webp   480w,
+              assets/images/victoria-650.webp   650w
+            "
+            sizes="(max-width: 600px) 80vw, 400px"
+            width="400"
+            height="400"
+            alt=""
+            fetchpriority="high"
+          />
+          <div class="frame"></div>
           <div class="caption">${get('photo_caption')}</div>
         </div>
         <div>

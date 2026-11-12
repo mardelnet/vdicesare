@@ -25,7 +25,8 @@ class ResearchGroups extends SheetPage {
                     </a>` : ''}
                 </div>
                 <div class="data">
-                  ${item.year}
+                  ${item.year ? `${item.year} <br>` : ''}
+                  ${item.country ? `${item.country}` : ''}
                 </div>
               </div>`)
               .join('')}

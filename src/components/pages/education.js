@@ -1,6 +1,5 @@
 class Education extends SheetPage {
   render(items) {
-    const sheet = this.getAttribute('sheet');
     
     const listItems = items
       .map((item, i) => `
@@ -9,8 +8,9 @@ class Education extends SheetPage {
             <h4>${item.text}</h4>
           </div>
           <div class="data">
-            ${item.location}<br>
-            ${item.extra}
+            ${item.extra2 ? `${item.extra2} <br>` : ''}
+            ${item.extra1 ? `${item.extra1} <br>` : ''}
+            ${item.country ? `${item.country}` : ''}
           </div>
         </div>`)
       .join('');

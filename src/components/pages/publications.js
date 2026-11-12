@@ -17,22 +17,15 @@ class Publications extends SheetPage {
             ${groupItems.map((item) => `
               <div class="item">
                 <div class="head">
-                  <h4>${item.title}</h4>
+                  <p>
+                    ${item.text1}
+                    <span class="apa-title">${item.title}</span>
+                    ${item.text2}
+                  </p>
                   ${item.link ? `
                     <a href="${item.link}" target="_blank">
                       <img src="/assets/images/icon-external-link.svg" />
                     </a>` : ''}
-                </div>
-                <div class="data">
-                  ${item.source ? `<strong>Source:</strong> ${item.source}<br>` : ''}
-                  ${item.authors ? `<strong>Authors:</strong> ${item.authors}<br>` : ''}
-                  ${item.institution ? `<strong>Institution:</strong> ${item.institution}<br>` : ''}
-                  ${item.year ? `<strong>Year:</strong> ${item.year}<br>` : ''}
-                  ${item.volume ? `<strong>Volume:</strong> ${item.volume}<br>` : ''}
-                  ${item.pages ? `<strong>Pages:</strong> ${item.pages}<br>` : ''}
-                  ${item.editor ? `<strong>Editor:</strong> ${item.editor}<br>` : ''}
-                  ${item.book_title ? `<strong>Book Title:</strong> ${item.book_title}<br>` : ''}
-                  ${item.publisher ? `<strong>Publisher:</strong> ${item.publisher}` : ''}
                 </div>
               </div>`)
               .join('')}
